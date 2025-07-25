@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Nacional de Football</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #0033a0;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #002080;
+    }
+
+    #custom-popup {
+      position: fixed;
+      display: none;
+      background: white;
+      border: 2px solid #0033a0;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Club Nacional de Football</h1>
+  </header>
+
+  <nav>
+    <ul>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Sección Sobre el Club -->
+    <section>
+      <h2>Información sobre el Club Nacional de Football</h2>
+      <p>El Club Nacional de Football, fundado el 14 de mayo de 1899, es uno de los clubes más grandes, populares y tradicionales de Uruguay. Ha sido protagonista tanto a nivel local como internacional, ganando numerosos campeonatos y siendo cuna de grandes futbolistas uruguayos.</p>
+    </section>
+
+    <!-- Botones a Videos e Información -->
+    <section>
+      <a href="videos.html" class="btn">Ver videos</a>
+      <a href="informacion.html" class="btn">Informacion</a>
+	  <a href="soporte.html" class="btn">Soporte</a>
+	  <a href="quimica.html" class="btn">Quimica</a>
+    </section>
+
+    <!-- Contador de Visitas -->
+    <section>
+      <h2>Contador de visitas</h2>
+      <p>Esta página ha sido vista <span id="contador"></span> veces en este navegador.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Club Nacional de Football</p>
+  </footer>
+
+  <!-- Script del contador -->
+  <script>
+    let visitas = localStorage.getItem("visitas") || 0;
+    visitas++;
+    localStorage.setItem("visitas", visitas);
+    document.getElementById("contador").innerText = visitas;
+  </script>
+
+  <!-- Popup personalizado -->
+  <div id="custom-popup">Club Nacional de Football, fundado el 14 de mayo de 1899</div>
+  <script>
+    const popup = document.getElementById('custom-popup');
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      popup.style.display = 'block';
+      popup.style.left = e.pageX + 'px';
+      popup.style.top = e.pageY + 'px';
+    });
+
+    document.addEventListener('click', function() {
+      popup.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
